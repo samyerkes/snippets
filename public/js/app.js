@@ -1032,7 +1032,15 @@ Vue.component('snippet-create', __webpack_require__(46));
 window.Event = new Vue();
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    nav: false
+  },
+  methods: {
+    toggleNavigation: function toggleNavigation() {
+      this.nav = this.nav ? false : true;
+    }
+  }
 });
 
 /***/ }),

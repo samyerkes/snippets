@@ -10,9 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::LoginUsingId(2);
 
-Route::resource('snippets', 'Web\SnippetController');
-Route::resource('output', 'Web\OutputController');
+// Auth::loginUsingId(1);
+
+Auth::routes();
 Route::get('/', 'Web\HomeController@index')->name('home.index');
-Route::get('/{snippet}', 'Web\HomeController@show')->name('home.show');
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::resource('snippets', 'Web\SnippetController');
+	Route::resource('output', 'Web\OutputController');
+	Route::get('/{snippet}', 'Web\HomeController@show')->name('home.show');
+});

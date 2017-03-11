@@ -22,5 +22,13 @@ Vue.component('snippet-create', require('./components/snippets/Snippet-Create.vu
 window.Event = new Vue();
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+    	nav: false
+    },
+    methods: {
+        toggleNavigation: function() {
+          this.nav = this.nav ? false : true;
+        }
+      }
 });

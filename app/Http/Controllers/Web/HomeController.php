@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Snippet;
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,7 +16,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $snippets = Snippet::all()->sortBy('title');
+        if (Auth::guest()) {
+            return view('home');
+        }
+        $user = Auth::user();
+        $snippets = $user->snippets->sortBy('title');
         return view('snippets.index', compact('snippets'));
     }
 
