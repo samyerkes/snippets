@@ -11,6 +11,13 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->insert([
+            'name' => 'samyerkes',
+            'email' => 'samuelyerkes@gmail.com',
+            'password' => \Hash::make('test'),
+            'created_at' => Carbon\Carbon::now(),
+            'updated_at' => Carbon\Carbon::now(),
+        ]);
         factory(App\Models\User::class, 2)->create();
         factory(App\Models\Snippet::class, 3)->create();
         factory(App\Models\Output::class, 10)->create();
