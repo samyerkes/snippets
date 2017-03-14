@@ -20,5 +20,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('snippets', 'Web\SnippetController');
 	Route::resource('output', 'Web\OutputController');
 	Route::get('profile', 'Web\ProfileController@index')->name('profile.index');
+	Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 	Route::get('/{snippet}', 'Web\HomeController@show')->name('home.show');
 });
