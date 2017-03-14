@@ -18,7 +18,7 @@ class OutputController extends Controller
     public function store(Request $request)
     {
         $output = new Output;
-        $output->user_id = Auth::user()->id;
+        $output->user_id = Auth::guard('api')->user()->id;
         $output->snippet_id = $request->snippet_id;
         $output->body = $request->body;
         $output->save();

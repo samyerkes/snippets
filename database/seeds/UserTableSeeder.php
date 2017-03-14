@@ -15,6 +15,7 @@ class UserTableSeeder extends Seeder
             'name' => 'samyerkes',
             'email' => 'samuelyerkes@gmail.com',
             'password' => \Hash::make('test'),
+            'api_token' => str_random(60),
             'created_at' => Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now(),
         ]);

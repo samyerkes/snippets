@@ -13,9 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+ Route::group(['middleware' => 'auth:api'], function () {
+    Route::post('v1/snippets', 'API\SnippetController@store')->name('api.snippets.store');
+	Route::post('v1/output', 'API\OutputController@store')->name('api.output.store');
+	Route::post('v1/profile/token', 'API\ProfileController@regnerateToken')->name('api.profile.token.regenerate');
 });
-
-Route::post('v1/snippets', 'API\SnippetController@store')->name('api.snippets.store');
-Route::post('v1/output', 'API\OutputController@store')->name('api.output.store');

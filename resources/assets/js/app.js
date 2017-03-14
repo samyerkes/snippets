@@ -15,6 +15,7 @@ require('./bootstrap');
 
 Vue.component('alert', require('./components/Alert.vue'));
 Vue.component('copy', require('./components/Copy.vue'));
+Vue.component('apitoken', require('./components/Api-Token.vue'));
 Vue.component('snippet', require('./components/snippets/Snippet.vue'));
 Vue.component('snippet-create', require('./components/snippets/Snippet-Create.vue'));
 

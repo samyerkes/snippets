@@ -10,7 +10,7 @@
 
 <script>
     export default {
-        props: ['message', 'id'],
+        props: ['message', 'id', 'token'],
         data: function() {
             return {
                 input: '',
@@ -29,6 +29,7 @@
                 axios.post('/api/v1/output', {
                   snippet_id: this.id,
                   body: this.output,
+                  api_token: this.token
                 })
                 .catch((error) => {
                   console.log(error.response);
