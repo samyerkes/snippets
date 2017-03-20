@@ -17,7 +17,9 @@ Vue.component('alert', require('./components/Alert.vue'));
 Vue.component('copy', require('./components/Copy.vue'));
 Vue.component('apitoken', require('./components/Api-Token.vue'));
 Vue.component('snippet', require('./components/snippets/Snippet.vue'));
+Vue.component('snippetget', require('./components/snippets/Snippet-Get.vue'));
 Vue.component('snippet-create', require('./components/snippets/Snippet-Create.vue'));
+Vue.component('snippet-edit', require('./components/snippets/Snippet-Edit.vue'));
 
 // New Event instance of Vue for emitting and listening to events between components
 window.Event = new Vue();

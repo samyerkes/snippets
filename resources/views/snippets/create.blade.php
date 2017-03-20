@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-	<snippet-create></snippet-create>
+	<snippet-create :token="'{{ Auth::user()->api_token }}'"></snippet-create>
 @endsection

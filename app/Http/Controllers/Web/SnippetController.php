@@ -13,7 +13,7 @@ class SnippetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user)
     {
         $snippets = Snippet::all()->sortBy('title', 'asc')->get();
         return view('snippets.index', compact('snippets'));
@@ -37,7 +37,8 @@ class SnippetController extends Controller
      */
     public function show($id)
     {
-        //
+        $snippet = Snippet::find($id);
+        return view('snippets.show', compact('snippet'));
     }
 
     /**
@@ -48,6 +49,7 @@ class SnippetController extends Controller
      */
     public function edit($id)
     {
-        //
+        $snippet = Snippet::find($id);
+        return view('snippets.edit', compact('snippet'));
     }
 }
