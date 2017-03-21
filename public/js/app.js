@@ -2164,12 +2164,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = {
-    props: ['message', 'id', 'token'],
+    props: ['snippet', 'token'],
     data: function data() {
         return {
             input: '',
-            output: '',
-            snippet: {}
+            output: ''
         };
     },
     computed: {
@@ -2180,10 +2179,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         var _this = this;
 
-        this.output = this.message;
+        this.output = this.snippet.body;
         Event.$on('copied', function () {
             axios.post('/api/v1/output', {
-                snippet_id: _this.id,
+                snippet_id: _this.snippet.id,
                 body: _this.output,
                 api_token: _this.token
             }).catch(function (error) {

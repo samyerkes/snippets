@@ -10,12 +10,11 @@
 
 <script>
     export default {
-        props: ['message', 'id', 'token'],
+        props: ['snippet', 'token'],
         data: function() {
             return {
                 input: '',
-                output: '',
-                snippet: {}
+                output: ''
             }
         },
         computed: {
@@ -24,10 +23,10 @@
             }
         },
         mounted: function() {
-            this.output = this.message;
+            this.output = this.snippet.body;
             Event.$on('copied', () => {
                 axios.post('/api/v1/output', {
-                  snippet_id: this.id,
+                  snippet_id: this.snippet.id,
                   body: this.output,
                   api_token: this.token
                 })

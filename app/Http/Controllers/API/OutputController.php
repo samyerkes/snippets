@@ -20,7 +20,7 @@ class OutputController extends Controller
         $output = new Output;
         $output->user_id = Auth::guard('api')->user()->id;
         $output->snippet_id = $request->snippet_id;
-        $output->body = $request->body;
+        $output->body = preg_replace( "/\r|\n/", "", $request->body );
         $output->save();
         return $output;
     }
