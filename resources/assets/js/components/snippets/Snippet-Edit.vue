@@ -1,5 +1,6 @@
 <template>
   <form @submit.prevent="submitForm">
+      <h1>Edit {{ snippet.title }}</h1>
       <label class="label" for="title">Title</label>
       <p class="control">
           <input class="input" id="title" name="title" type="text" :placeholder="snippet.title" :value="snippet.title" v-model="snippet.title">
@@ -12,6 +13,7 @@
 
       <p class="control">
           <button class="button is-primary">Submit</button>
+          <a class="button is-danger" @click.prevent="deleteSnippet">Delete</a>
        </p>
   </form>
 </template>
@@ -36,6 +38,13 @@
           this.snippet.title = '';
           this.snippet.body = '';
           Event.$emit('alert', 'Snippet successfully edited!');
+        },
+        deleteSnippet: function() {
+          axios.delete('/api/v1/snippets/' + this.snippet.id + '?api_token=' + this.token)
+            .catch((error) => {
+              console.log(error.response);
+            });
+          Event.$emit('alert', 'Snippet successfully deleted!');
         }
       }
     }

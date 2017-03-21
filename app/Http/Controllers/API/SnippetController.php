@@ -45,4 +45,17 @@ class SnippetController extends Controller
     	$snippet->save();
         return $snippet;
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $snippet = Snippet::find($id);
+        $snippet->delete();
+        return "Snippet deleted";
+    }
 }

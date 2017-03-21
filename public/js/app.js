@@ -2076,6 +2076,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
   props: ['snippet', 'token'],
@@ -2096,6 +2098,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.snippet.title = '';
       this.snippet.body = '';
       Event.$emit('alert', 'Snippet successfully edited!');
+    },
+    deleteSnippet: function deleteSnippet() {
+      axios.delete('/api/v1/snippets/' + this.snippet.id + '?api_token=' + this.token).catch(function (error) {
+        console.log(error.response);
+      });
+      Event.$emit('alert', 'Snippet successfully deleted!');
     }
   }
 };
@@ -20654,7 +20662,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.submitForm($event)
       }
     }
-  }, [_c('label', {
+  }, [_c('h1', [_vm._v("Edit " + _vm._s(_vm.snippet.title))]), _vm._v(" "), _c('label', {
     staticClass: "label",
     attrs: {
       "for": "title"
@@ -20714,14 +20722,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.snippet.body = $event.target.value
       }
     }
-  }, [_vm._v(_vm._s(_vm.snippet.body))])]), _vm._v(" "), _vm._m(0)])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', {
+  }, [_vm._v(_vm._s(_vm.snippet.body))])]), _vm._v(" "), _c('p', {
     staticClass: "control"
   }, [_c('button', {
     staticClass: "button is-primary"
-  }, [_vm._v("Submit")])])
-}]}
+  }, [_vm._v("Submit")]), _vm._v(" "), _c('a', {
+    staticClass: "button is-danger",
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.deleteSnippet($event)
+      }
+    }
+  }, [_vm._v("Delete")])])])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

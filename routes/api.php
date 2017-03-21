@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 	Route::get('v1/snippets', 'API\SnippetController@index')->name('api.snippets.index');    
     Route::post('v1/snippets', 'API\SnippetController@store')->name('api.snippets.store');
     Route::put('v1/snippets/{snippet}', 'API\SnippetController@update')->name('api.snippets.update');
+    Route::delete('v1/snippets/{snippet}', 'API\SnippetController@destroy')->name('api.snippets.destroy');
+    
 	Route::post('v1/output', 'API\OutputController@store')->name('api.output.store');
 	Route::post('v1/profile/token', 'API\ProfileController@regnerateToken')->name('api.profile.token.regenerate');
 });
