@@ -1,23 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-	<table class="table is-striped">
-	  <thead>
-	    <tr>
-	      <th>User</th>
-	      <th>Body</th>
-	      <th>Copy</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-		@foreach($outputs as $output)
-			<tr>
-				<td>{{ $output->user->name }}</td>
-				<td>{{ $output->body }}</td>
-				<td><copy :clipboard="'{{ $output->body }}'"></copy></td>
-			</tr>
-		@endforeach  	
-	  </tbody>
-	 </table>
-	
+		<h1>Output</h1>
+		<table-component
+		     :data="{{ $outputs }}"
+	         sort-by="User"
+	         sort-order="asc"
+	         table-class="table"
+	         :show-caption="false"
+	         :show-filter="false"
+		>
+			 <table-column show="user.name" label="User"></table-column>
+			 <table-column show="body" label="Body"></table-column>
+		 </table-component>
 @endsection
