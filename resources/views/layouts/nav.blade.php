@@ -9,8 +9,9 @@
 			<span></span>
 			<span></span>
 		</span>
-
-        <div class="nav-right nav-menu" :class="{ 'is-active': nav }">
+        
+        {!! Breadcrumbs::render() !!}
+        {{-- <div class="nav-right nav-menu" :class="{ 'is-active': nav }">
             @if (Auth::guest())
                 <a href="{{ route('login') }}" class="nav-item">Login</a>
                 <a href="{{ route('register') }}" class="nav-item">Register</a>
@@ -22,5 +23,5 @@
                 <a href="{{ route('logout') }}" class="nav-item">Logout</a>
             @endif
         </div>
-    </div>
+ --}}    </div>
 </nav>

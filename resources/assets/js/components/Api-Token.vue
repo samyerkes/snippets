@@ -1,13 +1,11 @@
 <template>
-  <div class="columns">
-    <div class="column notification">
+  <div class="notification">
       <label for="token">API Token</label>
       <p class="control">
         <input type="text" name="token" id="token" :value="token" class="input">  
       </p>
       <a class="button is-warning" @click.prevent="regenerateToken">Regenerate token</a>
       <copy class="is-pulled-right" :clipboard="token"></copy>
-    </div>
   </div>
 </template>
 

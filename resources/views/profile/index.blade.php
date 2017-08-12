@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
 	<h1>{{ strtoupper($user->name) }}</h1>

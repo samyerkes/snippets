@@ -18,9 +18,8 @@ Route::get('/', 'Web\HomeController@index')->name('home.index');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('snippets', 'Web\SnippetController');
-	Route::get('snippets/{snippet}/edit/history', 'Web\SnippetHistoryController@show');
-	Route::resource('output', 'Web\OutputController');
+	Route::get('snippets/{snippet}/edit/history', 'Web\SnippetHistoryController@show')->name('snippets.history');
+	Route::get('output', 'Web\OutputController@index')->name('output.index');
 	Route::get('profile', 'Web\ProfileController@index')->name('profile.index');
 	Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-	Route::get('/{snippet}', 'Web\HomeController@show')->name('home.show');
 });

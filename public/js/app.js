@@ -17539,8 +17539,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['token'],
@@ -36270,9 +36268,7 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "columns"
-  }, [_c('div', {
-    staticClass: "column notification"
+    staticClass: "notification"
   }, [_c('label', {
     attrs: {
       "for": "token"
@@ -36302,7 +36298,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "clipboard": _vm.token
     }
-  })], 1)])
+  })], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
