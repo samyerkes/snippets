@@ -12,6 +12,11 @@ require('./bootstrap');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+//in your app.js or similar file
+
+import { TableComponent, TableColumn } from 'vue-table-component';
+Vue.component('table-component', TableComponent);
+Vue.component('table-column', TableColumn);
 
 Vue.component('alert', require('./components/Alert.vue'));
 Vue.component('copy', require('./components/Copy.vue'));

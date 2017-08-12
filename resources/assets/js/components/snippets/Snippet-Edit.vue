@@ -1,6 +1,9 @@
 <template>
   <form @submit.prevent="submitForm">
-      <h1>Edit {{ snippet.title }}</h1>
+      <div class="columns">
+        <h1 class="column is-11">Edit {{ snippet.title }}</h1>
+        <a class="column is-1" href="edit/history">History</a>
+      </div>
       <label class="label" for="title">Title</label>
       <p class="control">
           <input class="input" id="title" name="title" type="text" :placeholder="snippet.title" :value="snippet.title" v-model="snippet.title">
