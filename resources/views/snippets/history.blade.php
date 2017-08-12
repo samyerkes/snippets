@@ -14,7 +14,7 @@
 	            @endforeach
 	         @endforeach
          ]"
-         sort-by="End"
+         sort-by="Time"
          sort-order="asc"
          table-class="table"
          :show-caption="false"
