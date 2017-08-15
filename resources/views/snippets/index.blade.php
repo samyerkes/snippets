@@ -8,16 +8,20 @@
          sort-order="asc"
          table-class="table"
          :show-caption="false"
-         :show-filter="false"
+         filter-placeholder="Filter..."
+         filter-input-class="input"
 	>
-		 <table-column show="title" label="Title"></table-column>
+		 <table-column show="title" label="Title">
+            <template scope="snippet">
+                <a v-text="snippet.title" :href="'snippets/' + snippet.id"></a>
+            </template>
+        </table-column>
 		 <table-column show="body" label="Body"></table-column>
-		 <table-column show="created_at" label="Time"></table-column>
+		 <table-column :sortable="false" :filterable="false">
+            <template scope="snippet">
+                <a v-text="'Edit'" :href="'snippets/' + snippet.id + 'edit'" class="button is-small"></a>
+            </template>
+        </table-column>
 	 </table-component>
 
-	{{-- @if($snippets->count())
-		<snippetget :token="'{{ Auth::user()->api_token }}'"></snippetget>
-	@else
-		<p class="has-text-centered">Oh no! Looks like you don't have any snippets yet.</p>
-	@endif --}}
 @endsection

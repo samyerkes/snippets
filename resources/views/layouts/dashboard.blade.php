@@ -28,8 +28,8 @@
 </head>
 
 <body>
-    <div id="app" class="container is-fullhd">
-        <div class="columns is-centered">
+    <div id="app" class="is-fullhd">
+        <div class="columns">
             
             @include('layouts.dashboard-nav')
 
