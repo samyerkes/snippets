@@ -20,7 +20,7 @@ class HomeController extends Controller
             return view('home');
         }
         $user = Auth::user();
-        $snippets = $user->snippets->sortBy('title');
+        $snippets = $user->snippets;
         return view('snippets.index', compact('snippets'));
     }
 

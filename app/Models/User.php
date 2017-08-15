@@ -32,6 +32,6 @@ class User extends Authenticatable
      */
     public function snippets()
     {
-        return $this->hasMany('App\Models\Snippet');
+        return $this->hasMany('App\Models\Snippet')->orderby('title');
     }
 }

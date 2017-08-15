@@ -15,7 +15,8 @@ class SnippetController extends Controller
      */
     public function index()
     {
-        $snippets = Snippet::all();
+        $snippets = Snippet::orderby('id')->get();
+        // $snippets = App\Models\Output::with('user')->orderby('id', 'desc')->take(5)->get();
         return view('snippets.index', compact('snippets'));
     }
 
