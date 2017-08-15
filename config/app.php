@@ -179,7 +179,6 @@ return [
         App\Providers\BreadcrumbsServiceProvider::class,
 
         OwenIt\Auditing\AuditingServiceProvider::class,
-        Spatie\BladeJavaScript\BladeJavaScriptServiceProvider::class,
 
     ],
 
