@@ -7,3 +7,7 @@
 
 // Bulma
 @import "node_modules/bulma/bulma.sass";
+
+table.output td {
+	min-width: 200px;
+}

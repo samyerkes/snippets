@@ -15,7 +15,7 @@ class OutputController extends Controller
      */
     public function index()
     {
-        $outputs = Output::with('user')->orderby('id', 'desc')->take(5)->get();
+        $outputs = Output::with('user')->orderby('id', 'desc')->take(15)->get();
         return view('outputs.index', compact('outputs'));
     }
 

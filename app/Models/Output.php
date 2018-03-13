@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Output extends Model
 {
+        
+    /*
+    * Mutators
+    */
+   	public function getCreatedAtAttribute($date)
+    {
+        return \Carbon\Carbon::parse($date)->diffForHumans();
+    }
+
 	/*
 	/ Relationships
 	 */

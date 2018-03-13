@@ -6,7 +6,7 @@
 		     :data="{{ $outputs }}"
 	         sort-by="Time"
 	         sort-order="asc"
-	         table-class="table"
+	         table-class="table output"
 	         :show-caption="false"
 	         :show-filter="false"
 		>
