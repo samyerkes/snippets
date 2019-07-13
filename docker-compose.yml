@@ -1,0 +1,31 @@
+version: "3"
+
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+
+services:
+    app:
+      container_name: snippets-app
+      build:
+        context: .
+        dockerfile: app.dockerfile
+      volumes:
+          - ./:/var/www/
+          - ./public/:/var/www/html/
+      ports:
+          - 8080:80
+      networks:
+        - web
+        - internal
+    db:
+      container_name: snippets-db
+      image: mysql:5.7
+      volumes:
+        - ./db-data:/var/lib/mysql
+      env_file:
+        - docker.env
+      networks:
+        - internal
