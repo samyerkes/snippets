@@ -9,14 +9,14 @@ networks:
 services:
     app:
       container_name: snippets-app
-      build:
-        context: .
-        dockerfile: app.dockerfile
+      image: php:laravel
       volumes:
           - ./:/var/www/
           - ./public/:/var/www/html/
-      ports:
-          - 8080:80
+      labels:
+        - traefik.frontend.rule=Host:snippets.samyerkes.com
+        - traefik.docker.network=web
+        - traefik.port=80
       networks:
         - web
         - internal
@@ -29,3 +29,5 @@ services:
         - docker.env
       networks:
         - internal
+      labels:
+        - traefik.enable=false
