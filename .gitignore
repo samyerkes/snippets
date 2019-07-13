@@ -9,3 +9,4 @@ Homestead.yaml
 .env
 .DS_Store
 /db-data
+docker.env
